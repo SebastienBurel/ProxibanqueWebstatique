@@ -6,9 +6,37 @@
 <title>Proxibanque - Edition Client</title>
 </head>
 <style>
+input[type=text], select {
+	padding: 12px 20px;
+	margin: 8px 0;
+	width: 100%;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+
+input[type=submit] {
+	background-color: #4CAF50;
+	color: white;
+	margin: 8px 0;
+	padding: 12px 20px;
+	border-radius: 4px;
+	
+}
+
+input[type=submit]:hover {
+	background-color: #45a049;
+}
 
 
-
+.group {
+	border-radius: 20px;
+	background-color: #d2d2d2;
+	padding: 7px;
+	text-align: left;	
+	height: auto;
+	
+}
 </style>
 </head>
 <body>
@@ -27,6 +55,17 @@
   </div>
 </nav>
 <body>
-page d'édition des clients
+<div class="container">
+  <div class="jumbotron">
+  <h1>Edition de clients</h1>
+	
+		<div class="group">
+			<fieldset style="border-radius: 10px">
+				<legend>Client à modifier :</legend>
+				<form action="/action_page.php">
+					<label for="numeroclient">Numero client</label><br> <input type="text" id="numeroclient"
+						name="numeroclient" placeholder="Numero..."><br>
+			</fieldset>
+		</div>
 </body>
 </html>
