@@ -3,11 +3,25 @@
 <head>
 <meta charset="ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <title>Proxibanque - Virements</title>
 <style>
+th {
+		text-align : center;
+		font-weight: bold;		
+	}
+
+	#divResultat {
+		margin: auto;
+		margin-top: 20px;
+		width : 50%;
+		text-align : center;
+	}
 input[type=text], select {
 	padding: 12px 20px;
 	margin: 8px 0;
@@ -17,26 +31,29 @@ input[type=text], select {
 	box-sizing: border-box;
 }
 
-input[type=submit] {
-	background-color: #4CAF50;
-	color: white;
+input[type=number] {
+	padding: 12px 20px;
+	margin: 8px 0;
+	width: 50%;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+
+input[type=button] {
 	margin: 8px 0;
 	padding: 12px 20px;
 	border-radius: 4px;
 	width: 30%;
 }
 
-input[type=submit]:hover {
-	background-color: #45a049;
-}
-
-.general, .group {
+.form-group, .group {
 	border-radius: 20px;
 	background-color: #d2d2d2;
 	padding: 7px;
 }
 
-.general {
+.form-group {
 	text-align: center;
 }
 
@@ -47,67 +64,91 @@ input[type=submit]:hover {
 	display: inline-block;
 }
 </style>
+<script>
+	function valider(){
+		let montant = document.getElementById("montant").value;
+		let nomdebiteur = document.getElementById("nom1").value;
+		let prenomdebiteur = document.getElementById("prenom1").value;
+		let comptedebiteur = document.getElementById("compte1").value;
+		let nomcrediteur = document.getElementById("nom2").value;
+		let prenomcrediteur = document.getElementById("prenom2").value;
+		let comptecrediteur = document.getElementById("compte2").value;	
+		
+		let table="<tr><th colspan=2>Client débiteur</th><th colspan=2>Client créditeur</th></tr><tr><td>Nom</td><td>"
+		+ nomdebiteur + 
+		"</td><td>Nom</td><td>"
+		+ nomcrediteur + 
+		"</td></tr>";
+		
+		let elementDiv = document.getElementById("divResultat");
+		elementDiv.innerHTML = table;
+}
+</script>
 </head>
 <body>
 
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="home.html">PROXIBANQUE</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li><a href="home.html">Authentification</a></li>
-  <li><a href="listeclients.html">Liste des clients</a></li>
-  <li><a href="editionclient.html">Edition Client</a></li>
-  <li><a href="listecomptesclients.html">Liste Comptes Client</a></li>
-  <li class="active"><a href="virements.html">Virements</a></li>
-    </ul>
-  </div>
-</nav>
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="home.html">PROXIBANQUE</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li><a href="home.html">Authentification</a></li>
+				<li><a href="listeclients.html">Liste des clients</a></li>
+				<li><a href="editionclient.html">Edition Client</a></li>
+				<li><a href="listecomptesclients.html">Liste Comptes Client</a></li>
+				<li class="active"><a href="virements.html">Virements</a></li>
+			</ul>
+		</div>
+	</nav>
 
-<div class="container">
-  <div class="jumbotron">
-  <h1>Virement compte à compte</h1>
+	<div class="container">
+		<div class="jumbotron">
+			<h1>Virement compte à compte</h1>
 
-	<div class="general">
-		<div class="group">
-			<fieldset style="border-radius: 10px">
-				<legend>Personne à débiter :</legend>
-				<form action="/action_page.php">
-					<label for="nom">Nom</label><br> <input type="text" id="nom"
-						name="nom" placeholder="Nom de famille..."><br> <label
-						for="prenom">Prenom</label><br> <input type="text"
-						id="prenom" name="prenom" placeholder="Prenom..."><br>
-					<label for="compte">Type de compte</label><br> <select
-						id="compte" name="compte">
-						<option value="comptecourant">Compte Courant</option>
-						<option value="compteepargne">Compte Epargne</option>
+			<form>
+				<div class="form-group">
+					<div class="group">
 
-					</select><br>
-			</fieldset>
+						<fieldset style="border-radius: 10px">
+							<legend>Personne à débiter :</legend>
+							<label for="nom">Nom</label><br> <input type="text"
+								id="nom1" name="nom" placeholder="Nom de famille..."><br>
+							<label for="prenom">Prenom</label><br> <input type="text"
+								id="prenom1" name="prenom" placeholder="Prenom..."><br>
+							<label for="compte">Type de compte</label><br> <select
+								id="compte1" name="compte">
+								<option value="compte courant">Compte Courant</option>
+								<option value="compte epargne">Compte Epargne</option>
+							</select><br>
+						</fieldset>
+					</div>
+					<div class="group">
+
+						<fieldset style="border-radius: 10px">
+							<legend>Personne à créditer :</legend>
+
+							<label for="nom">Nom</label><br> <input type="text"
+								id="nom2" name="nom" placeholder="Nom de famille..."><br>
+							<label for="prenom">Prenom</label><br> <input type="text"
+								id="prenom2" name="prenom" placeholder="Prenom..."><br>
+							<label for="compte">Type de compte</label><br> <select
+								id="compte2" name="compte">
+								<option value="compte courant">Compte Courant</option>
+								<option value="compte epargne">Compte Epargne</option>
+							</select><br>
+						</fieldset>
+
+					</div>
+
+					<label for="montant">Montant à virer</label><br> <input
+						type="number" id="montant" name="montant" placeholder="Montant..."><br>
+					<input type="button" onclick="valider();" class="btn btn-primary"
+						value="Valider">
+			</form>
 		</div>
 
-
-		<div class="group">
-			<fieldset style="border-radius: 10px">
-				<legend>Personne à créditer :</legend>
-
-				<label for="nom">Nom</label><br> <input type="text" id="nom"
-					name="nom" placeholder="Nom de famille..."><br> <label
-					for="prenom">Prenom</label><br> <input type="text" id="prenom"
-					name="prenom" placeholder="Prenom..."><br> <label
-					for="compte">Type de compte</label><br> <select id="compte"
-					name="compte">
-					<option value="comptecourant">Compte Courant</option>
-					<option value="compteepargne">Compte Epargne</option>
-
-				</select><br>
-			</fieldset>
-
-		</div>
-		<input type="submit" value="Valider"> 
-		</form>
-	</div>
+		<table id="divResultat" class="alert alert-info table table-striped"></table>
 	</div>
 	</div>
 

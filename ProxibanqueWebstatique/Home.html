@@ -4,6 +4,49 @@
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <title>Proxibanque - Accueil</title>
+<script>
+
+let myCallBack = function(reponse) {
+	console.log("callback a executer a la reception d'une reponse")
+	//alert(reponse.responseText);
+	let login = document.getElementById("login").value;
+	let password = document.getElementById("password").value;
+	console.log(login);
+	console.log("JsonParse")
+	let conseillers = JSON.parse(reponse.responseText);
+	let loginOK = false;
+	
+	let i = 0;
+	while (loginOK !== true && i < conseillers.length) {
+		let conseiller = conseillers[i];
+		if (conseiller.login == login && conseiller.password == password) {
+			loginOK = true;			
+			break;
+		}
+		i++;
+	}
+	if (loginOK == true) {
+		alert("authentification réussie");
+		
+	} else {
+		location.href = "Erreur.html";
+	}
+	let elementDiv = document.getElementById("divResultat");
+	elementDiv.innerHTML = table;
+}
+function verif() {
+	console.log("Appel AJAX");
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			myCallBack(this);
+		}
+	}
+	xhttp.open("GET", "conseillers.json", true);
+	xhttp.send();
+}
+
+</script>
 <style>
 
 
@@ -26,6 +69,28 @@
   </div>
 </nav>
 
-page d'authentification conseiller
+<div class="container">
+		<div class="jumbotron">
+			<h1>Authentification Conseiller</h1>
+
+			<form>
+				<div class="form-group">
+					<label for="login">Login</label> <input type="text"
+						class="form-control" id="login">
+				</div>
+				<div class="form-group">
+					<label for="password">Password</label> <input type="password"
+						class="form-control" id="password">
+				</div>
+				<input type="button" onclick="verif();" class="btn btn-primary"
+					value="Valider">
+
+			</form>
+			<table id="divResultat" class="alert alert-info table table-striped"></table>
+		</div>
+
+</div>
+
+
 </body>
 </html>
