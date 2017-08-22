@@ -55,6 +55,31 @@ input[type=button] {
 
 
 </style>
+<script>
+	function valider(){
+		let nomsaisi = document.getElementById("nom").value;
+		let prenomsaisi = document.getElementById("prenom").value;
+		let adressemail = "orange@xmail.com";
+		let adresse = "Rue Volatire, 31170 Tournefeuille";	
+		
+		
+		let table="<caption>Client selectionné</caption><tr><th>Libellé</th><th>Donné</th></tr><tr><th>Nom</th><th>"
+		+ nomsaisi + 
+		"</th></tr><tr><th>Prenom</th><th>"
+		+ prenomsaisi + 
+		"</th></tr><tr><th>Adressemail</th><th>"
+		+ adressemail + 
+		"</th></tr><tr><th>Adresse</th><th>"
+		+ adresse + 
+		"</th></tr>";
+		
+		let elementDiv = document.getElementById("divResultat");
+		elementDiv.innerHTML = table;
+		
+  }
+	
+	
+</script>
 </head>
 <body>
 <nav class="navbar navbar-inverse">
@@ -87,8 +112,10 @@ input[type=button] {
 			</fieldset>
 			<input type="button" onclick="valider();" class="btn btn-primary"
 						value="Valider">
+				</form>
 		</div>		
-		
+		<table id="divResultat" class="alert alert-info table table-bordered table-striped">
+		</table
 		div class="form-group">
 			<fieldset style="border-radius: 10px">
 				<legend>Informations à modifier</legend>
@@ -100,14 +127,14 @@ input[type=button] {
       <option value="email">Email</option>
       <option value="adresse">Adresse</option>
     </select>
+				</form>	
 				
 				
 				
 				
 				
 				
-				
-				</form>
+			
 				
 		
 			
