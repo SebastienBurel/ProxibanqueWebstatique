@@ -28,6 +28,12 @@ input[type=submit]:hover {
 	background-color: #45a049;
 }
 
+.form-group{
+	text-align: center;
+}
+fieldset{
+	text-align: left;
+}
 
 .group {
 	border-radius: 20px;
@@ -37,6 +43,17 @@ input[type=submit]:hover {
 	height: auto;
 	
 }
+input[type=button] {
+	margin: 10px;
+	padding: 12px 20px;
+	border-radius: 4px;
+	width: 30%;
+	
+	
+}
+
+
+
 </style>
 </head>
 <body>
@@ -59,13 +76,53 @@ input[type=submit]:hover {
   <div class="jumbotron">
   <h1>Edition de clients</h1>
 	
-		<div class="group">
+		<div class="form-group">
 			<fieldset style="border-radius: 10px">
 				<legend>Client à modifier :</legend>
-				<form action="/action_page.php">
-					<label for="numeroclient">Numero client</label><br> <input type="text" id="numeroclient"
-						name="numeroclient" placeholder="Numero.."><br>
+				<form>
+					<label for="nom">Nom</label><br> <input type="text" id="nom"
+						name="nom" placeholder="Nom..."><br>
+						<label for="prenom">Prenom</label><br> <input type="text" id="prenom"
+						name="prenom" placeholder="Prenom..."><br>
 			</fieldset>
+			<input type="button" onclick="valider();" class="btn btn-primary"
+						value="Valider">
+		</div>		
+		
+		div class="form-group">
+			<fieldset style="border-radius: 10px">
+				<legend>Informations à modifier</legend>
+				<form>
+				<label for="info">Choisissez l'information à modifier</label>
+    <select id="info" name="info">
+      <option value="nom">Nom</option>
+      <option value="prenom">Prenom</option>
+      <option value="email">Email</option>
+      <option value="adresse">Adresse</option>
+    </select>
+				
+				
+				
+				
+				
+				
+				
+				</form>
+				
+		
+			
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		</div>
+		</div>
+		
 </body>
 </html>
