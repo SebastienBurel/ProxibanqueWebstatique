@@ -27,7 +27,15 @@ let myCallBack = function(reponse) {
 	}
 	if (loginOK == true) {
 		alert("authentification réussie");
-		window.open('Home.html');
+		let elementDiv1 = document.getElementById("cache1");
+		elementDiv1.style.display = "block";
+		let elementDiv2 = document.getElementById("cache2");
+		elementDiv2.style.display = "block";
+		let elementDiv3 = document.getElementById("cache3");
+		elementDiv3.style.display = "block";
+		let elementDiv4 = document.getElementById("cache4");
+		elementDiv4.style.display = "block";
+		
 		
 	} else {
 		location.href = "Erreur.html";
@@ -56,10 +64,12 @@ function verif() {
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="Authentification.html">Authentification</a></li>
-      <li><a href="listeClients.html">Liste des clients</a></li>
-  <li><a href="EditionClient.html">Edition Client</a></li>
-  <li><a href="ListeComptesClients.html">Liste Comptes Client</a></li>
-  <li><a href="Virements.html">Virements</a></li>>
+      
+      <li style="display: none" id="cache1"><a href="listeClients.html">Liste des clients</a></li>
+  <li style="display: none" id="cache2"><a href="EditionClient.html">Edition Client</a></li>
+  <li style="display: none" id="cache3"><a href="ListeComptesClients.html">Liste Comptes Client</a></li>
+  <li style="display: none" id="cache4"><a href="Virements.html">Virements</a></li>>
+  
      </ul>
   </div>
 </nav>
