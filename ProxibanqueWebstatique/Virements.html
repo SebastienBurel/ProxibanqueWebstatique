@@ -99,7 +99,7 @@ input[type=button] {
 		let soldedebiteur = 1000;
 		let soldecrediteur = 500;	
 		let nouveausoldedebiteur = soldedebiteur - montant;
-		let nouveausoldecrediteur = soldecrediteur + montant;
+		let nouveausoldecrediteur = parseInt(soldecrediteur) + parseInt(montant);
 		
 		let table="<caption>Résumé de l'opération</caption><tr><th colspan=2>Client débiteur</th><th colspan=2>Client créditeur</th></tr><tr><td>Nom</td><td>"
 		+ nomdebiteur + 
@@ -109,9 +109,9 @@ input[type=button] {
 		+ prenomdebiteur + 
 		"</td><td>Prenom</td><td>"
 		+ prenomcrediteur + 
-		"</td></tr><tr><td>Solde courant</td><td>"
+		"</td></tr><tr><td>Solde disponible</td><td>"
 		+ soldedebiteur + 
-		"</td><td>Solde courant</td><td>" 
+		"</td><td>Solde disponible</td><td>" 
 		+ soldecrediteur +
 		"</td></tr><tr><td>Solde après débit</td><td>"
 		+ nouveausoldedebiteur +	
