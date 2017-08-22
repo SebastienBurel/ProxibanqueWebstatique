@@ -11,7 +11,14 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <title>Proxibanque - Virements</title>
 <style>
+caption{
+		text-align : center;
+		font-weight: bold;
+}
+
 th {
+		background-color: #337AB7;
+		color: white;
 		text-align : center;
 		font-weight: bold;		
 	}
@@ -63,6 +70,22 @@ input[type=button] {
 	height: auto;
 	display: inline-block;
 }
+#divResultat2{
+	margin: 10px auto;
+	width: 50%
+	
+}
+
+#divResultat3{
+	text-align : center;
+}
+#annuler{
+	margin: 8px 0;
+	padding: 12px 20px;
+	border-radius: 4px;
+	width: 30%;
+}
+
 </style>
 <script>
 	function valider(){
@@ -72,17 +95,43 @@ input[type=button] {
 		let comptedebiteur = document.getElementById("compte1").value;
 		let nomcrediteur = document.getElementById("nom2").value;
 		let prenomcrediteur = document.getElementById("prenom2").value;
-		let comptecrediteur = document.getElementById("compte2").value;	
+		let comptecrediteur = document.getElementById("compte2").value;
+		let soldedebiteur = 1000;
+		let soldecrediteur = 500;	
+		let nouveausoldedebiteur = soldedebiteur - montant;
+		let nouveausoldecrediteur = soldecrediteur + montant;
 		
-		let table="<tr><th colspan=2>Client débiteur</th><th colspan=2>Client créditeur</th></tr><tr><td>Nom</td><td>"
+		let table="<caption>Résumé de l'opération</caption><tr><th colspan=2>Client débiteur</th><th colspan=2>Client créditeur</th></tr><tr><td>Nom</td><td>"
 		+ nomdebiteur + 
 		"</td><td>Nom</td><td>"
 		+ nomcrediteur + 
+		"</td></tr><tr><td>Prenom</td><td>"
+		+ prenomdebiteur + 
+		"</td><td>Prenom</td><td>"
+		+ prenomcrediteur + 
+		"</td></tr><tr><td>Solde courant</td><td>"
+		+ soldedebiteur + 
+		"</td><td>Solde courant</td><td>" 
+		+ soldecrediteur +
+		"</td></tr><tr><td>Solde après débit</td><td>"
+		+ nouveausoldedebiteur +	
+		"</td><td>Solde après virement</td><td>" 
+		+ nouveausoldecrediteur + 
 		"</td></tr>";
 		
 		let elementDiv = document.getElementById("divResultat");
 		elementDiv.innerHTML = table;
+		
+		let elementDiv2 = document.getElementById("divResultat2");
+		elementDiv2.style.display = "block";
 }
+	
+	function valider2(){
+		let elementDiv = document.getElementById("divResultat3");
+		elementDiv.innerHTML = "Virement effectué avec succès !";
+		elementDiv.style.display = "block";
+		
+	}
 </script>
 </head>
 <body>
@@ -148,9 +197,28 @@ input[type=button] {
 			</form>
 		</div>
 
-		<table id="divResultat" class="alert alert-info table table-striped"></table>
-	</div>
-	</div>
+		<table id="divResultat" class="alert alert-info table table-bordered table-striped">
+		</table>
+		
+		<form>
+				
+				
+				<div id="divResultat2" class="form-group" style="display:none">			
+						
+						
+						<fieldset style="border-radius: 10px">
+						<legend>Souhaitez-vous poursuivre l'opération :</legend>
+						<input type="button" onclick="valider2();" class="btn btn-success"
+						value="Valider">
+						<a href="virements.html" class="btn btn-danger" role="button" id="annuler">Annuler</a>						
+						</fieldset>
+						</form>
+						</div>
+						
+						
+			<div id="divResultat3" class="alert alert-success"
+				style="display: none"></div>
+	
 
 </body>
 </html>
