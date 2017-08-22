@@ -69,7 +69,7 @@ Note:   Certains fonctions de l'applications sont en cours de développement - No
 
 - vous pouvez vous logger dans l'espace conseiller avec les logins et passwords suivants : 
 	- login1 : jeanpeuxplus, password1 :0000
-        - login2 : arnauddupuis, password2 :999
+        - login2 : arnauddupuis, password2 :9999
 
 - vous pouvez consulter la liste d'un conseiller dans l'onglet "Liste des clients", et afficher les détails d'un client fictif : Sebastien BUREL
 
