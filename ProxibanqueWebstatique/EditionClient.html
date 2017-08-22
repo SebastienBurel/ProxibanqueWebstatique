@@ -51,6 +51,12 @@ input[type=button] {
 	
 	
 }
+#annuler{
+	margin: 8px 0;
+	padding: 12px 20px;
+	border-radius: 4px;
+	width: 30%;
+}
 
 
 
@@ -74,7 +80,7 @@ input[type=button] {
 <body>
 <div class="container">
   <div class="jumbotron">
-  <h1>Edition de clients</h1>
+  <h1 style="text-align: center">Edition de clients</h1>
 	
 		<div class="form-group">
 			<fieldset style="border-radius: 10px">
@@ -87,9 +93,10 @@ input[type=button] {
 			</fieldset>
 			<input type="button" onclick="valider();" class="btn btn-primary"
 						value="Valider">
+						</form>
 		</div>		
 		
-		div class="form-group">
+		<div id="infomodif" class="form-group">
 			<fieldset style="border-radius: 10px">
 				<legend>Informations à modifier</legend>
 				<form>
@@ -99,17 +106,16 @@ input[type=button] {
       <option value="prenom">Prenom</option>
       <option value="email">Email</option>
       <option value="adresse">Adresse</option>
-    </select>
-				
-				
-				
-				
-				
-				
+      </select>
+      <label for="infomodif">Nouvelle valeur à rentrer</label><br> <input type="text" name="infomodif" placeholder="Nouvelle valeur..."><br>
+      </fieldset>
+      <input type="button" onclick="valider2();" class="btn btn-success" value="Valider">
+		<a href="EditionClient.html" class="btn btn-danger" role="button" id="annuler">Annuler</a>
+    
 				
 				</form>
 				
-		
+		</div>
 			
 		
 		
