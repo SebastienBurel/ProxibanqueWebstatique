@@ -57,33 +57,126 @@ input[type=button] {
 	border-radius: 4px;
 	width: 30%;
 }
+th {
+		
+		text-align : center;
+		font-weight: bold;		
+	}
+
+	#divResultat {
+		margin: auto;
+		margin-top: 20px;
+		width : 50%;
+		text-align : center;
+	}
+	caption{
+	text-align : center;
+		font-weight: bold;
+	}
 
 
 
 </style>
 <script>
-	function valider(){
-		let nomsaisi = document.getElementById("nom").value;
-		let prenomsaisi = document.getElementById("prenom").value;
-		let adressemail = "orange@xmail.com";
-		let adresse = "Rue Volatire, 31170 Tournefeuille";	
-		
-		
-		let table="<caption>Client selectionné</caption><tr><th>Libellé</th><th>Donné</th></tr><tr><th>Nom</th><th>"
-		+ nomsaisi + 
-		"</th></tr><tr><th>Prenom</th><th>"
-		+ prenomsaisi + 
-		"</th></tr><tr><th>Adressemail</th><th>"
-		+ adressemail + 
-		"</th></tr><tr><th>Adresse</th><th>"
-		+ adresse + 
-		"</th></tr>";
-		
-		let elementDiv = document.getElementById("divResultat");
-		elementDiv.innerHTML = table;
-		
-  }
+function valider(){
 	
+let nomsaisi = document.getElementById("nom").value;
+let prenomsaisi = document.getElementById("prenom").value;
+let adressemail = "orange@xmail.com";
+let adresse = "Rue Volatire, 31170 Tournefeuille";	
+
+
+let table="<caption>Client selectionné</caption><tr><th>Nom</th><th>"
++ nomsaisi + 
+"</th></tr><tr><th>Prenom</th><th>"
++ prenomsaisi + 
+"</th></tr><tr><th>Adressemail</th><th>"
++ adressemail + 
+"</th></tr><tr><th>Adresse</th><th>"
++ adresse + 
+"</th></tr>";
+
+let elementDiv = document.getElementById("divResultat");
+elementDiv.innerHTML = table;
+let elementDiv2 = document.getElementById("infomodif");
+elementDiv2.style.display = "block";
+
+}
+function valider2(){
+let check = document.getElementById("info").value;
+let newvaleur = document.getElementById("nouvellevaleur").value;
+
+let nomsaisi = document.getElementById("nom").value;
+let prenomsaisi = document.getElementById("prenom").value;
+let adressemail = "orange@xmail.com";
+let adresse = "Rue Volatire, 31170 Tournefeuille";	 
+
+    let nommodif = document.getElementById("info").value;
+	let prenommodif = document.getElementById("info").value;
+	let adressemailmodif = document.getElementById("info").value;
+	let adressemodif = document.getElementById("info").value;	
+	
+if (check == "nom"){
+		
+		let table2="<caption>Client selectionné</caption><tr><th>Nom</th><th>"
+			+ newvaleur + 
+			"</th></tr><tr><th>Prenom</th><th>"
+			+ prenomsaisi + 
+			"</th></tr><tr><th>Adressemail</th><th>"
+			+ adressemail + 
+			"</th></tr><tr><th>Adresse</th><th>"
+			+ adresse + 
+			"</th></tr>";
+		let elementDiv = document.getElementById("divResultat2");
+		elementDiv.innerHTML = table2;
+	}
+	
+if (check == "prenom"){
+		
+		let table2="<caption>Client selectionné</caption><tr><th>Nom</th><th>"
+			+ nomsaisi + 
+			"</th></tr><tr><th>Prenom</th><th>"
+			+ newvaleur + 
+			"</th></tr><tr><th>Adressemail</th><th>"
+			+ adressemail + 
+			"</th></tr><tr><th>Adresse</th><th>"
+			+ adresse + 
+			"</th></tr>";
+		let elementDiv = document.getElementById("divResultat2");
+		elementDiv.innerHTML = table2;
+	}
+if (check == "email"){
+
+let table2="<caption>Client selectionné</caption><tr><th>Nom</th><th>"
+	+ nomsaisi + 
+	"</th></tr><tr><th>Prenom</th><th>"
+	+ prenomsaisi + 
+	"</th></tr><tr><th>Adressemail</th><th>"
+	+ newvaleur + 
+	"</th></tr><tr><th>Adresse</th><th>"
+	+ adresse + 
+	"</th></tr>";
+let elementDiv = document.getElementById("divResultat2");
+elementDiv.innerHTML = table2;
+}		
+	
+if (check == "adresse"){
+
+let table2="<caption>Client selectionné</caption><tr><th>Nom</th><th>"
+	+ nomsaisi + 
+	"</th></tr><tr><th>Prenom</th><th>"
+	+ prenomsaisi + 
+	"</th></tr><tr><th>Adressemail</th><th>"
+	+ adressemail + 
+	"</th></tr><tr><th>Adresse</th><th>"
+	+ newvaleur + 
+	"</th></tr>";
+let elementDiv = document.getElementById("divResultat2");
+elementDiv.innerHTML = table2;
+}				
+
+}
+
 	
 </script>
 </head>
@@ -121,8 +214,10 @@ input[type=button] {
 						</form>
 		</div>		
 		<table id="divResultat" class="alert alert-info table table-bordered table-striped">
-		</table
-		<div id="infomodif" class="form-group">
+		</table>
+		
+		
+		<div id="infomodif" class="form-group" style="display: none">
 			<fieldset style="border-radius: 10px">
 				<legend>Informations à modifier</legend>
 				<form>
@@ -133,7 +228,7 @@ input[type=button] {
       <option value="email">Email</option>
       <option value="adresse">Adresse</option>
       </select>
-      <label for="infomodif">Nouvelle valeur à rentrer</label><br> <input type="text" name="infomodif" placeholder="Nouvelle valeur..."><br>
+      <label for="infomodif">Nouvelle valeur à rentrer</label><br> <input type="text" name="infomodif" placeholder="Nouvelle valeur..." id="nouvellevaleur"><br>
       </fieldset>
       <input type="button" onclick="valider2();" class="btn btn-success" value="Valider">
 		<a href="EditionClient.html" class="btn btn-danger" role="button" id="annuler">Annuler</a>
@@ -143,7 +238,8 @@ input[type=button] {
 				
 		</div>
 			
-		
+		<table id="divResultat2" class="alert alert-info table table-bordered table-striped">
+		</table>
 		
 		
 		
