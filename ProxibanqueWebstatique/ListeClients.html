@@ -6,21 +6,88 @@
 <title>Proxibanque - Liste Clients</title>
 </head>
 <style>
+input[type=text], select {
+	padding: 12px 20px;
+	margin: 8px 0;
+	width: 100%;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+
+input[type=submit] {
+	background-color: #4CAF50;
+	color: white;
+	margin: 8px 0;
+	padding: 12px 20px;
+	border-radius: 4px;
+	
+}
+
+input[type=submit]:hover {
+	background-color: #45a049;
+}
+
+.form-group{
+	text-align: center;
+}
+fieldset{
+	text-align: left;
+}
+
+.group {
+	border-radius: 20px;
+	background-color: #d2d2d2;
+	padding: 7px;
+	text-align: left;	
+	height: auto;
+	
+}
+input[type=button] {
+	margin: 10px;
+	padding: 12px 20px;
+	border-radius: 4px;
+	width: 30%;
+	
+	
+}
+#annuler{
+	margin: 8px 0;
+	padding: 12px 20px;
+	border-radius: 4px;
+	width: 30%;
+}
 th {
-		text-align : left;
-		font-weight: bold;
+		
+		text-align : center;
+		font-weight: bold;		
 	}
 
 	#divResultat {
 		margin: auto;
+		margin-top: 20px;
 		width : 50%;
 		text-align : center;
 	}
+	caption{
+	text-align : center;
+		font-weight: bold;
+	}
+	#divClientSelectionne{
+	margin: auto;
+		margin-top: 20px;
+		width : 50%;
+		text-align : center;
+	}
+	}
+
 
 
 </style>
 <script>
 
+	
+	
 	
 	let myCallBackClients = function (reponse){
 			console.log("callback a executer a la reception d'une reponse")
@@ -35,11 +102,11 @@ th {
 				    client.numero_conseiller +
 				    "</td><td>" +
 				    client.numero +
-				    "</td><td>" +
+				    "</td><td><a href='ListeClients2.html'>" +
 				    client.Nom +
-				    "</td><td>" +
+				    "</a></td><td><a href='ListeClients2.html'>" +
 				    client.Prenom +
-				    "</td><td>" +
+				    "</a></td><td>" +
 				    client.Ville +
 				    "</td><td>" +
 				    client.Code_Postal +
@@ -54,6 +121,8 @@ th {
 		      
 		      
 	}
+
+	
 	
 	function callClients(){
 		//console.log("Appel AJAX");
@@ -67,57 +136,19 @@ th {
 		xhttp.send();
 	}
 
-	
-	let myCallBackComptes = function (reponse){
-			console.log("callback a executer a la reception d'une reponse")
-			    //alert(reponse.responseText);	      
-		      	console.log("JsonParse")
-		    	let comptes = JSON.parse(reponse.responseText);
-		    	let tableComptes="<caption>Affichage des comptes des clients</caption><tr><th>Numero Client</th><th>Compte Epargne</th><th>Solde Compte Epargne</th><th>Compte Courant</th><th>Solde Compte Courant</th></tr>";
-		    		
-				for (i = 0; i < comptes.length; i++) { 
-					let compte = comptes[i];
-				    tableComptes += "<tr><td>" +
-				    compte.numero +
-				    "</td><td>" +
-				    compte.numero_compte_epargne +
-				    "</td><td>" +
-				    compte.Solde1 +
-				    "</td><td>" +
-				    compte.numero_compte_courant +
-				    "</td><td>" +
-				    compte.Solde2 +
-				  	"</td></tr>";
-				}
-				let elementDiv = document.getElementById("divComptes");
-				elementDiv.innerHTML = tableComptes;
-		      
-		      
-	}
-	
-	function callComptes(){
-		console.log("Appel AJAX");
-		var xhttp = new XMLHttpRequest();		 
-		xhttp.onreadystatechange = function(){
-			if (this.readyState == 4 && this.status == 200) {
-				myCallBackComptes(this);
-			}
-		}
-		xhttp.open("GET", "comptes.json", true);
-		xhttp.send();
-	}
 
+	
 	
 </script>
 </head>
-<body>
+<body onLoad="callClients()">
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="home.html">PROXIBANQUE</a>
     </div>
     <ul class="nav navbar-nav">
-      <li><a href="home.html">Authentification</a></li>
+      <li><a href="authentification.html">Authentification</a></li>
   <li class="active"><a href="listeclients.html">Liste des clients</a></li>
   <li><a href="editionclient.html">Edition Client</a></li>
   <li><a href="listecomptesclients.html">Liste Comptes Client</a></li>
@@ -130,14 +161,21 @@ th {
 		<div class="row col-md-12 jumbotron">
 			<h1 style="text-align: center">Afficher Clients</h1>
 			
-			<form>
-			  <input type="button" onclick="callComptes();" class="btn btn-warning" value="Liste Comptes">
-			  <input type="button" onclick="callClients();" class="btn btn-warning" value="Liste Clients">
-			</form> 
 			<table id="divClients"  class="alert alert-info table table-striped"></table>
-			<table id="divComptes"  class="alert alert-info table table-striped"></table>
-		</div>
-	
+			
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
 	</div>
 </body>
 </html>

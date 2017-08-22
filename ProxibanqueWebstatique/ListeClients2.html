@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<title>Proxibanque - Liste Clients</title>
+</head>
+<style>
+input[type=text], select {
+	padding: 12px 20px;
+	margin: 8px 0;
+	width: 100%;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+
+input[type=submit] {
+	background-color: #4CAF50;
+	color: white;
+	margin: 8px 0;
+	padding: 12px 20px;
+	border-radius: 4px;
+	
+}
+
+input[type=submit]:hover {
+	background-color: #45a049;
+}
+
+.form-group{
+	text-align: center;
+}
+fieldset{
+	text-align: center;
+}
+#fieldsetleft{
+text-align: left;
+}
+
+.group {
+	border-radius: 20px;
+	background-color: #d2d2d2;
+	padding: 7px;
+	text-align: left;	
+	height: auto;
+	
+}
+input[type=button] {
+	margin: 10px;
+	padding: 12px 20px;
+	border-radius: 4px;
+	width: 30%;
+	
+	
+}
+#annuler{
+	margin: 8px 0;
+	padding: 12px 20px;
+	border-radius: 4px;
+	width: 30%;
+}
+th {
+		
+		text-align : center;
+		font-weight: bold;		
+	}
+
+	#divResultat {
+		margin: auto;
+		margin-top: 20px;
+		width : 50%;
+		text-align : center;
+	}
+	#divResultat2 {
+		margin: auto;
+		margin-top: 20px;
+		width : 50%;
+		text-align : center;
+	}
+	caption{
+	text-align : center;
+		font-weight: bold;
+	}
+	#divClientComptes{
+	margin: auto;
+		margin-top: 20px;
+		width : 50%;
+		text-align : center;
+	}
+	#divClientSelectionne{
+	margin: auto;
+		margin-top: 20px;
+		width : 50%;
+		text-align : center;
+	}
+
+#annulerbouton{
+	margin: 8px 0;
+	padding: 12px 12px;
+	border-radius: 4px;
+	width: 15%;
+	text-align: center;
+}
+#validerbouton{
+	margin: 8px 0;
+	padding: 12px 12px;
+	border-radius: 4px;
+	width: 15%;
+	text-align: center;
+}
+.encadre{
+	border-style: solid;
+	width: 50%;
+	margin: auto;
+	margin-top: 30px;
+}
+
+</style>
+<script>	
+	
+function valider2(){
+	let check = document.getElementById("info").value;
+	let newvaleur = document.getElementById("nouvellevaleur").value;
+
+	
+		
+	if (check == "nom"){
+			
+			let table2="<caption>Nouvelles informations client</caption><tr><th>Nom</th><th>"
+				+ newvaleur + 
+				"</th></tr><tr><th>Prenom</th><th>Sebastien</th></tr><tr><th>Adressemail</th><th>sebounet@gtm.com</th></tr><tr><th>Adresse</th><th>643 chemin des rossignols 31000 Toulouse</th></tr>";
+			let elementDiv = document.getElementById("divResultat2");
+			elementDiv.innerHTML = table2;
+		}
+		
+	if (check == "prenom"){
+			
+		let table2="<caption>Nouvelles informations client</caption><tr><th>Nom</th><th>Burel</th></tr><tr><th>Prenom</th><th>" + 
+		newvaleur +
+		"</th></tr><tr><th>Adressemail</th><th>sebounet@gtm.com</th></tr><tr><th>Adresse</th><th>643 chemin des rossignols 31000 Toulouse</th></tr>";
+			let elementDiv = document.getElementById("divResultat2");
+			elementDiv.innerHTML = table2;
+		}
+	if (check == "email"){
+
+	let table2="<caption>Nouvelles informations client</caption><tr><th>Nom</th><th>Burel</th></tr><tr><th>Prenom</th><th>Sebastien</th></tr><tr><th>Adressemail</th><th>" + 
+	newvaleur + 
+	"</th></tr><tr><th>Adresse</th><th>643 chemin des rossignols 31000 Toulouse</th></tr>";
+	let elementDiv = document.getElementById("divResultat2");
+	elementDiv.innerHTML = table2;
+	}		
+		
+	if (check == "adresse"){
+
+	let table2="<caption>Nouvelles informations client</caption><tr><th>Nom</th><th>Burel</th></tr><tr><th>Prenom</th><th>Sebastien</th></tr><tr><th>Adressemail</th><th>sebounet@gtm.com</th></tr><tr><th>Adresse</th><th>" + 
+	newvaleur + 
+	"</th></tr>";
+	let elementDiv = document.getElementById("divResultat2");
+	elementDiv.innerHTML = table2;
+	}				
+
+	}
+	
+	
+
+	
+	
+</script>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="home.html">PROXIBANQUE</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="authentification.html">Authentification</a></li>
+  <li class="active"><a href="listeclients.html">Liste des clients</a></li>
+  <li><a href="editionclient.html">Edition Client</a></li>
+  <li><a href="listecomptesclients.html">Liste Comptes Client</a></li>
+  <li><a href="virements.html">Virements</a></li>
+    </ul>
+  </div>
+</nav>
+<body>
+<div class="container">
+		<div class="row col-md-12 jumbotron">
+			<h1 style="text-align: center">Informations client</h1>			
+		
+		<div>
+		<table id="divClientSelectionne" class="alert alert-info table table-bordered table-striped">
+		<caption>Client selectionné</caption><tr><th>Nom</th><th>Burel</th></tr><tr><th>Prenom</th><th>Sebastien</th></tr><tr><th>Adressemail</th><th>sebounet@gtm.com</th></tr><tr><th>Adresse</th><th>643 chemin des rossignols 31000 Toulouse</th></tr>
+		</table>
+		</div>
+		
+		<table id="divClientComptes" class="alert alert-info table table-bordered table-striped">
+		<caption>Etat des comptes</caption><tr><th>Solde Compte Courant</th><th>Solde Compte Epargne</th></tr><tr><td>10000</td><td>1000</td></tr>
+		</table>
+		
+		
+		<div id="infomodif" class="form-group">
+			<fieldset style="border-radius: 10px" id="fieldsetleft">
+				<legend>Informations à modifier</legend>
+				<form>
+				<label for="info">Choisissez l'information à modifier</label>
+    <select id="info" name="info">
+      <option value="nom">Nom</option>
+      <option value="prenom">Prenom</option>
+      <option value="email">Email</option>
+      <option value="adresse">Adresse</option>
+      </select>
+      <label for="infomodif">Nouvelle valeur à rentrer</label><br> <input type="text" name="infomodif" placeholder="Nouvelle valeur..." id="nouvellevaleur"><br>
+      </fieldset>
+      <input type="button" onclick="valider2();" class="btn btn-success" value="Valider">
+		<a href="ListeClients2.html" class="btn btn-danger" role="button" id="annuler">Annuler</a>
+    
+				
+				</form>
+				
+		</div>
+		
+		<table id="divResultat2" class="alert alert-info table table-bordered table-striped">
+		</table>
+		
+		<div class="encadre">
+		<fieldset style="border-radius: 10px">
+						<legend>Voulez-vous effectuer un virement :</legend>
+						<a href="virements.html" class="btn btn-success" role="button" id="validerbouton">Valider</a>
+						<a href="listeclients.html" class="btn btn-danger" role="button" id="annulerbouton">Annuler</a>						
+						</fieldset>
+		</div>
+		
+		
+		
+		
+	</div>
+	</div>
+</body>
+</html>

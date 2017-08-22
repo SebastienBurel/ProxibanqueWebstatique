@@ -16,7 +16,22 @@ th {
 		width : 50%;
 		text-align : center;
 	}
-
+input[type=button] {
+	margin: 10px;
+	padding: 12px 20px;
+	border-radius: 4px;
+	width: 30%;
+	align-text: center;
+}
+fieldset{
+	
+	text-align: center;
+	margin-top: 50px;
+}
+caption{
+	text-align : center;
+		font-weight: bold;
+}
 
 </style>
 <script>
@@ -120,7 +135,7 @@ th {
       <a class="navbar-brand" href="home.html">PROXIBANQUE</a>
     </div>
     <ul class="nav navbar-nav">
-      <li><a href="home.html">Authentification</a></li>
+      <li><a href="authentification.html">Authentification</a></li>
   <li><a href="listeclients.html">Liste des clients</a></li>
   <li><a href="editionclient.html">Edition Client</a></li>
   <li class="active"><a href="listecomptesclients.html">Liste Comptes Client</a></li>
@@ -133,10 +148,13 @@ th {
 		<div class="row col-md-12 jumbotron">
 			<h1 style="text-align: center">Liste des comptes client</h1>
 			
+			<fieldset style="border-radius: 10px">
+						<legend>Que voulez-vous consulter :</legend>
 			<form>
-			  <input type="button" onclick="callComptes();" class="btn btn-warning" value="Liste Comptes">
-			  <input type="button" onclick="callClients();" class="btn btn-warning" value="Liste Clients">
+			  <input type="button" onclick="callComptes();" class="btn btn-primary" value="Liste Comptes">
+			  <input type="button" onclick="callClients();" class="btn btn-primary" value="Liste Clients">
 			</form> 
+			</fieldset>
 			<table id="divClients"  class="alert alert-info table table-striped"></table>
 			<table id="divComptes"  class="alert alert-info table table-striped"></table>
 		</div>
